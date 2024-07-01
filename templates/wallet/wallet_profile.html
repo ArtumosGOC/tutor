@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Histórico de Atividades</h1>
+    <h2>Saldo Atual: {{ user.wallet }} CodaPoints.</h2>
+    <table>
+        <tr>
+            <th>Data</th>
+            <th>Valor</th>
+            <th>Descrição</th>
+        </tr>
+        {% for data in user_data %}
+        <tr>
+            <td>{{ data.created_at|date:"d/m/Y" }}</td>
+            <td>{{ data.value }}</td>
+            <td>{{ data.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
